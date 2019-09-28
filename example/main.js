@@ -2,6 +2,7 @@ import Vue from "vue"
 import App from "./app.vue"
 import router from "@@/router"
 
+import Highlight from 'vue-markdown-highlight'
 import Layout from "@@/components/Layout.vue"
 import Header from "@@/components/Header.vue"
 import Aside from "@@/components/Aside.vue"
@@ -13,6 +14,7 @@ Vue.component(Layout.name, Layout)
 Vue.component(Header.name, Header)
 Vue.component(Aside.name, Aside)
 Vue.component(Main.name, Main)
+Vue.use(Highlight)
 
 new Vue({
   router,

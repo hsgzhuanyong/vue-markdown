@@ -6,8 +6,49 @@
 html,
 body{
   height: 100%;
+  font-size: 14px;
 }
 
 a {
   text-decoration: none;
+}
+
+ul,ol,li{
+  list-style-type: none;
+}
+
+
+.layout__right.content{
+  & pre{
+    //background-color: #f8f8f8;
+    //padding: 20px;
+    margin: 1.2em 0;
+    //overflow: auto;
+  }
+  & .hljs{
+    padding: 1em;
+  }
+  & h1, & h2,& h3 {
+    color: #444;
+    margin: 1.5em 0 1.2em;
+  }
+  & h1{
+    font-size: 2em;
+  }
+  & h2{
+    font-size: 1.6em;
+  }
+  & h3{
+    font-size: 1.2em;
+  }
+  & hr{
+    border: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  & p {
+    line-height: 1.6rem;
+  }
+  & blockquote {
+    margin-bottom: 20px;
+  }
 }

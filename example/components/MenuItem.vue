@@ -1,10 +1,10 @@
 <template>
   <div>
     <template v-if="getPath(data.path)">
-      <router-link v-if="data.type == 1" :to="getPath(data.path)" class="menu__group--link">{{data.name}}</router-link>
-      <router-link v-else-if="data.type == 2" :to="getPath(data.path)" class="menu__title">{{data.name}}</router-link>
+      <router-link v-if="data.type == 1" :to="getPath(data.path)" class="menu__group--link" :class="isActive">{{data.name}}</router-link>
+      <router-link v-else-if="data.type == 2" :to="getPath(data.path)" class="menu__title" :class="isActive">{{data.name}}</router-link>
       <div v-else-if="data.type == 3" class="menu__item">
-        <router-link :to="getPath(data.path)" class="menu__item--link">{{data.name}}</router-link>
+        <router-link :to="getPath(data.path)" class="menu__item--link" :class="isActive">{{data.name}}</router-link>
       </div>
     </template>
     <template v-else>
@@ -22,6 +22,9 @@ export default {
   props: {
     data: {
 
+    },
+    active: {
+      type: Boolean
     }
   },
   methods: {
@@ -29,12 +32,13 @@ export default {
       return val ? val : false;
     }
   },
+  computed: {
+    isActive() {
+      return this.active ? 'menu__item--active' : '';
+    }
+  },
   mounted() {
-    console.log(this.data);
+    // console.log(this.$route);
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

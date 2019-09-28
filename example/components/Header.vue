@@ -1,12 +1,17 @@
 <template>
   <div class="Header">
-    <h1 class="Header__logo">
-      <img class="Header__logo--img" src="@@/assets/images/logo.jpg" alt="style-ui logo"/>
-      <span class="Header__logo--title">
-        style-ui
-      </span>
-    </h1>
-    <div class="Header__nav"></div>
+    <router-link to="/">
+      <h1 class="Header__logo">
+        <img class="Header__logo--img" src="@@/assets/images/logo.jpg" alt="style-ui logo"/>
+        <span class="Header__logo--title">
+          style-ui
+        </span>
+      </h1>
+    </router-link>
+    <div class="Header__nav">
+      <router-link class="Header__nav--item" to="/docs">首页</router-link>
+      <!--<router-link class="Header__nav&#45;&#45;item" to="/docs">文档</router-link>-->
+    </div>
     <div class="Header__user"></div>
   </div>
 </template>
@@ -38,7 +43,17 @@
       }
     }
     &__nav{
-
+      flex: 1;
+      text-align: right;
+      padding: 0 50px;
+      &--item{
+        height: 70px;
+        line-height: 70px;
+        font-size: 16px;
+        display: inline-block;
+        padding:0 20px;
+        color: #333333;
+      }
     }
     &__user{
 

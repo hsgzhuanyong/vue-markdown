@@ -6,20 +6,54 @@ Vue.use(Router);
 
 const route = {};
 
-menuData.forEach(item => {
-  let component = item.filename ? () => import(`@@/pages/${item.filename}.md`) : null;
-  if(item.path) {
-    route[item.path] = {
-      title: item.name,
-      component
+// 递归设置路由
+let setRoute = (array) => {
+  array.forEach(item => {
+    if(item.children) {
+      setRoute(item.children);
+    } else {
+      let component = item.filename ? () => import(`@@/pages/${item.filename}.md`) : null;
+      if(item.path) {
+        route[item.path] = {
+          title: item.name,
+          component
+        }
+      }
     }
-  }
-});
+  });
+};
+setRoute(menuData);
+
+
 
 let router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: formatRoute(route)
+  routes: [
+    // {
+    //   path: "/",
+    //   name: "/",
+    //   component: () => import("@@/views/index.vue"),
+    //   meta: {
+    //     title: "style-ui"
+    //   }
+    // },
+    {
+      path: "/docs",
+      name: "docs",
+      component: () => import("@@/views/home.vue"),
+      children: formatRoute(route)
+    },
+    {
+      path: '/404',
+      name: "404",
+      component: () => import("@@/views/404.vue"),
+    },
+    {
+      path: '*',
+      redirect: '/404'
+    }
+  ]
 });
 
 router.beforeEach((to, from, next) => {
