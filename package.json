@@ -1,0 +1,49 @@
+{
+  "name": "vue-readme",
+  "version": "0.1.0",
+  "description": "快速搭建支持readme文件的vue项目",
+  "author": "maikro@126.com",
+  "private": false,
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hsgzhuanyong/vue-markdown-doc.git"
+  },
+  "keywords": [
+    "vue-markdown-doc",
+    "markdown",
+    "vue",
+    "doc"
+  ],
+  "scripts": {
+    "bootstrap": "yarn || npm i",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:example": "npm run bootstrap && cross-env NODE_ENV=development && webpack --config build/webpack.demo.js"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "cross-env": "^6.0.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^1.0.0",
+    "vue-markdown-loader": "^2.4.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
