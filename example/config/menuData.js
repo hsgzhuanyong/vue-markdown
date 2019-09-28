@@ -1,31 +1,30 @@
 const menuData = [
   {
-    path: "/",
-    group: "开发指南",
-    // title: "title",
-    // name: "name",
-    children: [
-      {
-        path: "/survey",
-        name: "概况"
-      },
-      {
-        path: "",
-        name: "安装"
-      },
-      {
-        path: "",
-        name: "css命名规范"
-      },
-    ]
+    path: "",
+    name: "开发指南",
+    type: 1,
+  },
+  {
+    path: "/docs/survey",
+    name: "概况",
+    filename: "survey",
+    type: 3,
+  },
+  {
+    path: "/docs/cssnorm",
+    name: "css命名规范",
+    filename: "cssnorm",
+    type: 3,
   },
   {
     path: "",
-    group: "css框架",
+    name: "css框架",
+    type: 1,
     children: [
       {
         path: "/install",
         title: "安装",
+        type: 2,
       }
     ]
   },

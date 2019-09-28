@@ -1,16 +1,20 @@
 import Vue from "vue";
-import Router from 'vue-router';
+import Router from "vue-router";
+import menuData from "@@/config/menuData.js";
 
 Vue.use(Router);
 
+const route = {};
 
-const route = {
-  '/': {
-    title: "13123",
-    component: () => import("@@/pages/home.md"),
-  },
-}
-
+menuData.forEach(item => {
+  let component = item.filename ? () => import(`@@/pages/${item.filename}.md`) : null;
+  if(item.path) {
+    route[item.path] = {
+      title: item.name,
+      component
+    }
+  }
+});
 
 let router = new Router({
   mode: 'history',
@@ -26,8 +30,6 @@ router.beforeEach((to, from, next) => {
 function formatRoute(route) {
   return Object.keys(route).map((path) => {
     const { component } = route[path];
-
-    console.log(route[path]);
 
     return {
       name: path,

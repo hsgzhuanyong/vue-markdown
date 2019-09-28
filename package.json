@@ -1,7 +1,7 @@
 {
-  "name": "vue-readme",
+  "name": "vue-markdown",
   "version": "0.1.0",
-  "description": "快速搭建支持readme文件的vue项目",
+  "description": "快速搭建支持markdown文件的vue项目",
   "author": "maikro@126.com",
   "private": false,
   "license": "ISC",

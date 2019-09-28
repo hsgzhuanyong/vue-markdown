@@ -1,10 +1,19 @@
 <template>
   <div>
-    <router-link v-if="data.group" :to="getPath(data.path)" class="menu__group--link">{{data.group}}</router-link>
-    <router-link v-else-if="data.title" :to="getPath(data.path)" class="menu__title">{{data.title}}</router-link>
-    <div v-else-if="data.name" class="menu__item">
-      <router-link :to="getPath(data.path)" class="menu__item--link">{{data.name}}</router-link>
-    </div>
+    <template v-if="getPath(data.path)">
+      <router-link v-if="data.type == 1" :to="getPath(data.path)" class="menu__group--link">{{data.name}}</router-link>
+      <router-link v-else-if="data.type == 2" :to="getPath(data.path)" class="menu__title">{{data.name}}</router-link>
+      <div v-else-if="data.type == 3" class="menu__item">
+        <router-link :to="getPath(data.path)" class="menu__item--link">{{data.name}}</router-link>
+      </div>
+    </template>
+    <template v-else>
+      <div v-if="data.type == 1" class="menu__group--link">{{data.name}}</div>
+      <div v-else-if="data.type == 2" class="menu__title">{{data.name}}</div>
+      <div v-else-if="data.type == 3" class="menu__item">
+        <div class="menu__item--link">{{data.name}}</div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -17,7 +26,7 @@ export default {
   },
   methods: {
     getPath(val) {
-      return val ? val : 'javascript:;';
+      return val ? val : false;
     }
   },
   mounted() {
