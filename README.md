@@ -6,22 +6,24 @@
 yarn || npm install 
 ```
 
-### Compiles and hot-reloads for development
+### 运行
 ```
 yarn || npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包
 ```
 yarn || npm  run build
 ```
 
-### Run your tests
-```
-yarn || npm run test
-```
-
-### Lints and fixes files
-```
-yarn || npm  run lint
+### 目录解析
+```text
+  |---------  example    示例
+    |-------  assets     资源
+    |-------  components 组件
+    |-------  pages      页面
+    |-------  router     路由
+  |---------  packages   插件
+  |---------  public     公共文件
+  |---------  dist       打包后的文件
 ```

@@ -18,8 +18,7 @@
   "scripts": {
     "bootstrap": "yarn || npm i",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:example": "npm run bootstrap && cross-env NODE_ENV=development && webpack --config build/webpack.demo.js"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^2.6.5",
